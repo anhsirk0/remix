@@ -29,3 +29,7 @@ pnpm dev
 #+BEGIN_SRC console
 node src/Backend.res.mjs
 #+END_SRC
+* Screnshots
+#+CAPTION: Screenshot
+#+NAME: main.png
+[[https://codeberg.org/anhsirk0/remix/raw/branch/main/screenshot.png]]
