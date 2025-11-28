@@ -1,0 +1,31 @@
+#+title:                 Remix
+#+author:                Krishna (Anshirk0)
+#+email:                 krishna404@yandex.com
+#+language:              en
+
++ Git repo on Codeberg: <https://codeberg.org/anhsirk0/remix>
+  - Mirrors:
+    + GitHub: <https://github.com/anhsirk0/remix>
+
+* About
+Web based playlist creator for Lollypop
+* Installation
+#+BEGIN_SRC console
+git clone https://codeberg.org/anhsirk0/remix.git
+#+END_SRC
+** Requirements
+ - pnpm
+ - nodejs
+* Usage
+** Rescript server
+#+BEGIN_SRC console
+pnpm run res:dev
+#+END_SRC
+** Vite server
+#+BEGIN_SRC console
+pnpm dev
+#+END_SRC
+** Backend server
+#+BEGIN_SRC console
+node src/Backend.res.mjs
+#+END_SRC
