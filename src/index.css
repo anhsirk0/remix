@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Lora";
+    src: local("Lora"), url("assets/fonts/Lora/Lora-Variable.ttf");
+  }
+  @font-face {
+    font-family: "Quicksand";
+    src:
+      local("Quicksand"), url("assets/fonts/Quicksand/Quicksand-Variable.ttf");
+  }
+}
+
+@theme {
+  --font-sans: "Quicksand", "Open Sans";
+  --font-serif: "Lora", "Open Sans";
+  --font-body: "Quicksand", "Open Sans";
+  --font-display: "Quicksand", "Open Sans";
+
+  --breakpoint-xs: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 86rem;
+  --breakpoint-2xl: 96rem;
+
+  --animate-grow: grow 200ms ease-in-out;
+  @keyframes grow {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  --animate-slide-up: slide-up 200ms ease-in-out;
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-fade: fade 200ms ease-in-out;
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@utility border-main {
+  @apply border-base-content/20;
+}
+
+@utility transitional {
+  @apply transition-all duration-300 ease-out;
+}
+
+@utility center {
+  @apply flex items-center justify-center;
+}
+
+.main-max-w {
+  @apply max-w-7xl 2xl:max-w-[90vw];
+}
+
+html {
+  scrollbar-gutter: auto !important;
+  overflow-x: hidden;
+}
+
+#root {
+  @apply flex items-center justify-center h-screen w-screen transition-all duration-300 ease-out bg-base-100 flex-col relative;
+}
+
+/* .modal-bottom { */
+/*   @apply translate-none; */
+/* } */
+
+/* .modal:not(dialog:not(.modal-open)) { */
+/*   @apply bg-base-300/80 filter backdrop-blur; */
+/* } */
+
+.r-text-sm {
+  @apply text-xs md:text-sm 2xl:text-base;
+}
+
+.r-text {
+  @apply text-sm md:text-base 2xl:text-xl;
+}
+
+.r-text-lg {
+  @apply text-base md:text-lg 2xl:text-2xl;
+}
+
+.r-text-xl {
+  @apply text-xl md:text-2xl 2xl:text-3xl;
+}
+
+.r-title {
+  @apply text-base xl:text-xl;
+}
+
+.r-btn {
+  @apply btn-sm lg:btn-md 2xl:btn-lg;
+}
+
+.r-icon {
+  @apply size-4 lg:size-5 2xl:size-6;
+}
+
+.r-gap {
+  @apply gap-2 2xl:gap-4;
+}
+
+.text-40 {
+  @apply text-base-content/40;
+}
+
+.text-60 {
+  @apply text-base-content/60;
+}
+
+.text-80 {
+  @apply text-base-content/80;
+}
+
+/* React Virtuoso */
+#tracks [data-viewport-type="element"],
+#selected-tracks [data-viewport-type="element"] {
+  padding: calc(var(--spacing) * 4);
+}
+
+.btn {
+  --depth: 0;
+}
