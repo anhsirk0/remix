@@ -78,7 +78,7 @@ module Dom = {
   let getTheme = () => {
     switch "remixTheme"->Dom.Storage.getItem(Dom.Storage.localStorage) {
     | Some(theme) => theme
-    | None => "valentine"
+    | None => "bumblebee"
     }
   }
   let setTheme = theme => {
