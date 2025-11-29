@@ -12,7 +12,7 @@ let make = () => {
     playlists->Array.find(p => p.name == name)->Option.map(p => p.id)
   }, (name, playlists))
 
-  let {mutate} = Hook.useApi({
+  let {mutate, isPending} = Hook.useApi({
     fn: Api.Playlists.create,
     onSuccess: _resp => {
       Toast.success(
@@ -53,7 +53,10 @@ let make = () => {
           </button>
         : React.null}
     </label>
-    <button disabled={selectedTracks->Util.Arr.isEmpty} className="btn xl:btn-lg btn-primary">
+    <button
+      disabled={selectedTracks->Util.Arr.isEmpty || isPending}
+      className="btn xl:btn-lg btn-primary">
+      {isPending ? <span className="loading loading-spinner" /> : React.null}
       {`${id->Option.isSome ? "Update" : "Create"} playlist`->React.string}
     </button>
   </form>
