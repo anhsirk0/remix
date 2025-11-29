@@ -16,6 +16,7 @@ let make = () => {
 
   <div className="flex flex-row size-full">
     <FilterPanel filteredTracks query setQuery />
+    <SelectedTracks query />
     <Virtuoso
       id="tracks"
       style={{

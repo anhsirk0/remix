@@ -8,6 +8,10 @@ let make = () => {
     "#name-input"->Util.Dom.querySelectAndThen(Util.Dom.focus)
   }
 
+  let id = React.useMemo2(() => {
+    playlists->Array.find(p => p.name == name)->Option.map(p => p.id)
+  }, (name, playlists))
+
   let {mutate} = Hook.useApi({
     fn: Api.Playlists.create,
     onSuccess: _resp => {
@@ -21,7 +25,6 @@ let make = () => {
   let onSubmit = evt => {
     evt->ReactEvent.Form.preventDefault
     let uris = selectedTracks->Array.map(t => t.uri)
-    let id = playlists->Array.find(p => p.name == name)->Option.map(p => p.id)
     mutate({"name": name, "uris": uris, "id": id})
   }
 
@@ -51,7 +54,7 @@ let make = () => {
         : React.null}
     </label>
     <button disabled={selectedTracks->Util.Arr.isEmpty} className="btn xl:btn-lg btn-primary">
-      {"Create playlist"->React.string}
+      {`${id->Option.isSome ? "Update" : "Create"} playlist`->React.string}
     </button>
   </form>
 }
