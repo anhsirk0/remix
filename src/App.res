@@ -2,7 +2,7 @@ let client = ReactQuery.Provider.createClient()
 
 @react.component
 let make = () => {
-  let {update, playlist} = Store.Lollypop.use()
+  let {tracks, update, playlist} = Store.Lollypop.use()
 
   let fruit = Fruit.useFruit({
     fn: Api.Tracks.all,
@@ -21,7 +21,7 @@ let make = () => {
   <div className="size-full flex flex-row bg-base-300">
     <Sidebar />
     {switch playlist {
-    | All => <AllTracksView />
+    | All => <MainView tracks title="All Tracks" />
     | UserPlaylist(playlist) => <PlaylistView playlist />
     }}
   </div>

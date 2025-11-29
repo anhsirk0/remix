@@ -1,9 +1,9 @@
 // type q = Track(string) | Album(string) | Artist(string) | Any
 
 @react.component
-let make = () => {
-  Hook.useDocTitle("All Tracks")
-  let {tracks, selectedTracks} = Store.Lollypop.use()
+let make = (~tracks: array<Shape.Track.t>, ~title) => {
+  Hook.useDocTitle(title)
+  let {selectedTracks} = Store.Lollypop.use()
   let (query, setQuery) = React.useState(_ => "")
 
   let filteredTracks = React.useMemo2(() => {

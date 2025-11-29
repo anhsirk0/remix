@@ -1,16 +1,15 @@
 open Axios
 
-%%private(let inst = make(Env.apiUrl, ""))
-
-let ping = data => inst->post("ping", data, makeConfig())
+%%private(let config = makeConfig())
 
 module Tracks = {
   %%private(let inst = make(Env.apiUrl, "tracks"))
-  let all = () => inst->get("all", makeConfig())
+  let all = () => inst->get("all", config)
 }
 
 module Playlists = {
   %%private(let inst = make(Env.apiUrl, "playlists"))
-  let all = () => inst->get("all", makeConfig())
-  let create = data => inst->post("create", data, makeConfig())
+  let all = () => inst->get("all", config)
+  let create = data => inst->post("create", data, config)
+  let getUris = id => inst->get(`uris?id=${id}`, config)
 }

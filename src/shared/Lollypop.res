@@ -12,9 +12,10 @@ module Tracks = {
 }
 
 module Playlists = {
-  let dbPath = "/.local/share/lollypop/lollypop.db"
+  let dbPath = "/.local/share/lollypop/playlists.db"
   let queryAll = "select id, name from playlists"
   let queryTracksUri = id => `select uri from tracks where playlist_id like '${id}'`
   let insertUri = id => `insert or replace into tracks (playlist_id, uri) values (${id}, ?)`
   let create = "insert into playlists (name, mtime) values (?, current_timestamp)"
+  let queryUris = id => `select uri from tracks where playlist_id = '${id}'`
 }
